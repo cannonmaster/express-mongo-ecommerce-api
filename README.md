@@ -16,7 +16,7 @@ Before running the application, make sure you have the following installed:
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/your-username/express-mongo-ecommerce-api.git
+git clone https://github.com/cannonmaster/express-mongo-ecommerce-api.git
 ```
 
 2. Navigate to the project directory:
