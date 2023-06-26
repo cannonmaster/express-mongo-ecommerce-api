@@ -1,0 +1,27 @@
+const express = require("express");
+const router = express.Router();
+const {
+  getAllOrders,
+  getCurrentUserOrders,
+  getSingleOrder,
+  createOrder,
+  updateOrder,
+} = require("../controller/orderController");
+const {
+  authenticateUser,
+  authorizePermissions,
+} = require("../middleware/authentication");
+
+router
+  .route("/")
+  .get(authenticateUser, authorizePermissions("admin"), getAllOrders)
+  .post(authenticateUser, createOrder);
+
+router.route("/showallmyorders").get(getCurrentUserOrders);
+
+router
+  .route("/:id")
+  .get(authenticateUser, getSingleOrder)
+  .patch(authenticateUser, updateOrder);
+
+module.exports = router;
